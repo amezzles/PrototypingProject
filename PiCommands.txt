@@ -3,13 +3,20 @@ It will take several minutes for the service to initialise all its parts and tur
 This service runs the file pet_feeder_main_controller.py in the pet_feeder folder.
 
 To manually reset the petfeeder service:
-
 sudo systemctl restart petfeeder.service
 
 To view the petfeeder service logs:
-
 sudo journalctl -u petfeeder.service -f
 
 To edit the petfeeder service program:
-
 sudo nano /etc/systemd/system/petfeeder.service
+
+
+*** If the petfeeder service is having issues here's how to manually run the petfeeder file ***
+
+
+Stop the service -> sudo systemctl stop petfeeder.service
+Check service has stopped -> sudo systemctl status petfeeder.service
+
+Navigate to pet feeder folder -> cd pet_feeder
+Run file manually -> python3 pet_feeder_main_controller.py
