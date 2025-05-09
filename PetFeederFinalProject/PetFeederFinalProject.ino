@@ -169,6 +169,7 @@ void checkPiMessages(unsigned long currentMillis) {
       // Any non-confirmation or error message from Pi regarding motion response
       Serial.println("INFO: Pi response received, but not a confirmation for target animal.");
       awaitingPiResponseAfterMotion = false; // Pi responded, stop waiting
+      lastMotionTimestamp = 0;
     } else if (piMessage.equals("PI_PONG")) {
       lastHeartbeatToPi = currentMillis; // Pi is alive
     } else if (piMessage.equals("PI_SHUTTING_DOWN")) {

@@ -1,0 +1,15 @@
+petfeeder.service will start upon the raspberry pi turning on.
+It will take several minutes for the service to initialise all its parts and turn on completely before it works.
+This service runs the file pet_feeder_main_controller.py in the pet_feeder folder.
+
+To manually reset the petfeeder service:
+
+sudo systemctl restart petfeeder.service
+
+To view the petfeeder service logs:
+
+sudo journalctl -u petfeeder.service -f
+
+To edit the petfeeder service program:
+
+sudo nano /etc/systemd/system/petfeeder.service
