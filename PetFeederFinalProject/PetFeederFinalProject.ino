@@ -3,6 +3,7 @@
 // --- Pin Definitions ---
 #define PIR_PIN 2       // PIR sensor OUT pin (Must be an interrupt pin: 2 or 3 on Uno)
 #define LED_PIN 3       // Grove LED Signal pin
+#define SERVO_PIN 9     // Motor Servo pin
 
 // --- Timing Constants ---
 const unsigned long PI_RESPONSE_TIMEOUT_MS = 20000; // 20 seconds for Pi to respond after motion
@@ -239,4 +240,16 @@ void handleLocalCommands(unsigned long currentMillis) { // Pass currentMillis
 }
 
 // --- Motor Control Placeholder ---
-// void openBowl() { Serial.println("MOTOR: Opening bowl simulation..."); }
+void turnSlot(int currslot, char direction){
+  if (direction = 'l'){
+    myServo.write(currSlot*72 - 72);
+  } else {
+    myServo.write(currSlot*72 - 72);
+  }
+  delay(5000);
+}
+
+void turnSlot(int slot){
+  myServo.write(slot*72);
+  delay(5000);
+}
