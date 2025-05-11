@@ -4,6 +4,7 @@
 #define PIR_PIN 2       // PIR sensor OUT pin (Must be an interrupt pin: 2 or 3 on Uno)
 #define LED_PIN 3       // Grove LED Signal pin
 #define SERVO_PIN 9     // Motor Servo pin
+Servo myServo;
 
 // --- Timing Constants ---
 const unsigned long PI_RESPONSE_TIMEOUT_MS = 20000; // 20 seconds for Pi to respond after motion
@@ -32,6 +33,8 @@ void setup() {
   pinMode(PIR_PIN, INPUT_PULLUP); // Use INPUT_PULLUP if needed, or INPUT
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW); // Start with LED off
+  myServo.attach(SERVO_PIN); // Attaches the servo on pin 9 to the servo object
+  int currSlot = 0;
 
   attachInterrupt(digitalPinToInterrupt(PIR_PIN), handleMotionISR, RISING);
 
